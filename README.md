@@ -1,17 +1,35 @@
-# cloudtrail-creation-
-cloud trail creation project with the terrafrom
+# cloudtrail-creation
+
+CloudTrail creation project using Terraform in AWS.
+
+---
+
+## 📌 Architecture
 AWS Account
-   │
-   ├── CloudTrail (Multi-region)
-   │       │
-   │       ├── Management Events (All Services)
-   │       └── Data Events (S3 Buckets)
-   │
-   └── S3 Bucket (CloudTrail Logs Storage)
+│
+├── CloudTrail (Multi-region)
+│ │
+│ ├── Management Events (All Services)
+│ └── Data Events (S3 Buckets)
+│
+└── S3 Bucket (CloudTrail Logs Storage)
 
+---
 
+## 🧠 Project Description
 
-# bucket policy 
+This project sets up AWS CloudTrail using Terraform with:
+
+- Multi-region trail enabled  
+- Management events for all AWS services  
+- Data events for S3 buckets  
+- Secure S3 bucket for storing logs  
+
+---
+
+## ⚙️ Bucket Policy
+
+```hcl
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.cloudtrail_bucket.id
 
@@ -44,4 +62,3 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
     ]
   })
 }
-
