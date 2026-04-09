@@ -5,14 +5,17 @@ CloudTrail creation project using Terraform in AWS.
 ---
 
 ## 📌 Architecture
+
+```
 AWS Account
-│
-├── CloudTrail (Multi-region)
-│ │
-│ ├── Management Events (All Services)
-│ └── Data Events (S3 Buckets)
-│
-└── S3 Bucket (CloudTrail Logs Storage)
+   │
+   ├── CloudTrail (Multi-region)
+   │       │
+   │       ├── Management Events (All Services)
+   │       └── Data Events (S3 Buckets)
+   │
+   └── S3 Bucket (CloudTrail Logs Storage)
+```
 
 ---
 
@@ -20,10 +23,10 @@ AWS Account
 
 This project sets up AWS CloudTrail using Terraform with:
 
-- Multi-region trail enabled  
-- Management events for all AWS services  
-- Data events for S3 buckets  
-- Secure S3 bucket for storing logs  
+* Multi-region trail enabled
+* Management events for all AWS services
+* Data events for S3 buckets
+* Secure S3 bucket for storing logs
 
 ---
 
@@ -62,3 +65,35 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
     ]
   })
 }
+```
+
+---
+
+## 🚀 How to Run
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+---
+
+## 🔍 Output Verification
+
+After deployment:
+
+* Go to AWS Console → CloudTrail
+* Ensure logging is enabled
+* Check S3 bucket → logs should be stored in:
+
+```
+AWSLogs/
+```
+
+---
+
+## 👨‍💻 Author
+
+Harsh Kashyap
+
